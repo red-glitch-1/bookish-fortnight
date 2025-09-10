@@ -42,8 +42,15 @@ A Laravel-based blog application with user authentication, posts, and comments f
    ```
 
 5. **Configure your database**
-   - Update the database credentials in your `.env` file
-   - Create a database for the application
+   - Create a SQLite database file:
+   ```bash
+   touch database/database.sqlite
+   ```
+   - Update your `.env` file to use SQLite:
+   ```
+   DB_CONNECTION=sqlite
+   DB_DATABASE=database/database.sqlite
+   ```
 
 6. **Generate application key**
    ```bash
