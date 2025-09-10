@@ -12,10 +12,9 @@ A Laravel-based blog application with user authentication, posts, and comments f
 
 ## Prerequisites
 
-- PHP 8.1 or higher
+- PHP 8.2 or higher
 - Composer
 - Node.js and npm
-- MySQL or MariaDB
 - Git
 
 ## Installation
@@ -46,7 +45,7 @@ A Laravel-based blog application with user authentication, posts, and comments f
    ```bash
    touch database/database.sqlite
    ```
-   - Update your `.env` file to use SQLite:
+   - (Optional) Update your `.env` file to use SQLite:
    ```
    DB_CONNECTION=sqlite
    DB_DATABASE=database/database.sqlite
