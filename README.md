@@ -9,11 +9,13 @@ A Laravel-based blog application with user authentication, posts, and comments f
 - Comment system
 - Role-based access control
 - Modern UI with Inertia.js and React
-- Docker containerization
 
 ## Prerequisites
 
-- Docker and Docker Compose
+- PHP 8.1 or higher
+- Composer
+- Node.js and npm
+- MySQL or MariaDB
 - Git
 
 ## Installation
@@ -24,30 +26,49 @@ A Laravel-based blog application with user authentication, posts, and comments f
    cd bookish-fortnight
    ```
 
-2. **Set up environment variables**
+2. **Install PHP dependencies**
+   ```bash
+   composer install
+   ```
+
+3. **Install Node.js dependencies**
+   ```bash
+   npm install
+   ```
+
+4. **Set up environment variables**
    ```bash
    cp .env.example .env
    ```
 
-3. **Start the application**
+5. **Configure your database**
+   - Update the database credentials in your `.env` file
+   - Create a database for the application
+
+6. **Generate application key**
    ```bash
-   docker-compose up -d --build
+   php artisan key:generate
    ```
 
-4. **Generate application key**
+7. **Run database migrations**
    ```bash
-   docker compose exec app php artisan key:generate
+   php artisan migrate
    ```
 
-5. **Run database migrations**
+8. **Seed the database**
    ```bash
-   docker compose exec app php artisan migrate
+   php artisan db:seed
    ```
 
-6. **Seed the database**
+9. **Build frontend assets**
    ```bash
-   docker compose exec app php artisan db:seed
+   npm run build
    ```
+
+10. **Start the development server**
+    ```bash
+    php artisan serve
+    ```
 
 ## Usage
 
@@ -63,14 +84,21 @@ A Laravel-based blog application with user authentication, posts, and comments f
    - Add comments to posts
    - Manage your profile
 
+## Development
+
+### Running the application
+```bash
+# Start the Laravel development server
+php artisan serve
+
+# In another terminal, watch for frontend changes
+npm run dev
+```
+
 ## Technology Stack
 
 - **Backend**: Laravel 12
 - **Frontend**: React with TypeScript
 - **UI**: Inertia.js
-- **Database**: MySQL
-- **Containerization**: Docker
-
-## Development
-
-The application uses Docker for development. All necessary services (PHP, MySQL, Nginx) are configured in the `docker-compose.yml` file.
+- **Database**: SQLite
+- **Build Tool**: Vite
